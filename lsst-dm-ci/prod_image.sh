@@ -26,7 +26,8 @@
 set -e
 
 # Build and push container image for ImgServ production version
-if [[ -z "$DOCKER_REPO" ]]; then
+# FIXME: $repo check root cause in jenkins-dm-jobs
+if [[ -z "$DOCKER_REPO" || "$DOCKER_REPO" == "$repo" ]]; then
     DOCKER_REPO="webserv/imgserv"
 fi
 
